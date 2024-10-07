@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My T Level Journey: Digital Production, Design and Development</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0fff0;
+        }
+        h1, h2 {
+            color: #008000;
+        }
+        .highlight {
+            color: #ff0000;
+            font-weight: bold;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+        #countdown {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #008000;
+            margin-top: 20px;
+        }
+        .interactive-section {
+            background-color: #e6ffe6;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        button {
+            background-color: #008000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        input[type="text"], input[type="url"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+</style>
+</head>
+<body>
+<h1>My T Level Journey: Digital Production, Design and Development</h1>
+<img src="https://i.ytimg.com/vi/b3ecG6dJRcE/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AHUBoAC4AOKAgwIABABGH8gMyggMA8=&rs=AOn4CLBH5ojsYk0W07f7g3ttC4NkV4QVIg" alt="T Level Digital Production, Design and Development" style="width: 100%; max-width: 800px; height: auto; margin: 20px 0;">
+<p>Hey there! I'm excited to share my journey into the world of <span class="highlight">T Levels in Digital Production, Design and Development</span>. As someone completely new to this qualification, I'm both thrilled and a bit nervous about what's to come!</p>
+ 
+    <h2>What are T Levels?</h2>
+<p>T Levels are a new 2-year qualification that combine classroom learning with a substantial industry placement. They're designed to give students the knowledge and experience needed to jump-start their careers in the digital industry.</p>
+ 
+    <h2>What Will I Learn?</h2>
+<p>Over the next two years, I'll be diving deep into topics like:</p>
+<ul>
+<li>Programming and coding</li>
+<li>Data analysis and problem-solving</li>
+<li>Digital security</li>
+<li>Emerging technologies like IoT, AI, and AR</li>
+</ul>
+ 
+    <h2>Industry Placement</h2>
+<p>One of the most exciting parts of this T Level is the <span class="highlight">45-day industry placement</span>. It's a chance to apply what we learn in the classroom to real-world scenarios. I can't wait to see what that experience will be like!</p>
+ 
+    <h2>Future Prospects</h2>
+<p>After completing this T Level, I'll have options to enter the workforce directly, pursue higher education, or even start an apprenticeship. The digital skills I'll gain are in high demand, which is really encouraging for my future career prospects.</p>
+ 
+    <div id="countdown"></div>
+ 
+    <div class="interactive-section">
+<h2>What are you most excited about in T Levels?</h2>
+<form id="poll">
+<label><input type="radio" name="option" value="Programming"> Programming</label><br>
+<label><input type="radio" name="option" value="Data Analysis"> Data Analysis</label><br>
+<label><input type="radio" name="option" value="Digital Security"> Digital Security</label><br>
+<label><input type="radio" name="option" value="Emerging Technologies"> Emerging Technologies</label><br>
+<button type="button" onclick="submitPoll()">Submit</button>
+</form>
+<div id="pollResult"></div>
+</div>
+ 
+    <div class="interactive-section">
+<h2>Share Your Thoughts!</h2>
+<form id="commentForm">
+<textarea placeholder="Leave a comment..." required></textarea><br>
+<button type="submit">Post Comment</button>
+</form>
+<div id="commentsSection"></div>
+</div>
+ 
+    <div class="interactive-section">
+<h2>Test Your Knowledge!</h2>
+<div id="quiz">
+<p>What does HTML stand for?</p>
+<button onclick="checkAnswer('correct')">HyperText Markup Language</button>
+<button onclick="checkAnswer('wrong')">HighText Machine Language</button>
+<button onclick="checkAnswer('wrong')">HyperText Markup Level</button>
+</div>
+<div id="quizResult"></div>
+</div>
+ 
+    <div class="interactive-section">
+<h2>Share Useful Resources!</h2>
+<form id="resourceForm">
+<input type="text" placeholder="Resource Title" required><br>
+<input type="url" placeholder="Resource URL" required><br>
+<button type="submit">Submit Resource</button>
+</form>
+<div id="resourcesSection"></div>
+</div>
+ 
+    <script>
+        // Countdown to course start date
+        const startDate = new Date("2024-09-01").getTime();
+ 
+        const countdownTimer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = startDate - now;
+ 
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+ 
+            document.getElementById("countdown").innerHTML = "Days until my T Level journey begins: " + days;
+ 
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                const countdownElement = document.getElementById("countdown");
+                countdownElement.innerHTML = "My T Level journey has begun!";
+                countdownElement.style.transition = "opacity 1s, font-size 1s, color 1s";
+                countdownElement.style.opacity = 0;
+                setTimeout(() => {
+                    countdownElement.style.opacity = 1;
+                    countdownElement.style.fontSize = "2em";
+                    countdownElement.style.color = "#ff0000";
+                }, 1000);
+            }
+        }, 1000);
+ 
+        function submitPoll() {
+            const options = document.querySelectorAll('input[name="option"]');
+            let selectedOption;
+            options.forEach((option) => {
+                if (option.checked) {
+                    selectedOption = option.value;
+                }
+            });
+            document.getElementById("pollResult").innerHTML = "You selected: " + selectedOption;
+        }
+ 
+        document.getElementById("commentForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const comment = this.querySelector("textarea").value;
+            const commentDiv = document.createElement("div");
+            commentDiv.textContent = comment;
+            document.getElementById("commentsSection").appendChild(commentDiv);
+            this.reset();
+        });
+ 
+        function checkAnswer(answer) {
+            if (answer === 'correct') {
+                document.getElementById("quizResult").innerHTML = "Correct! 🎉";
+            } else {
+                document.getElementById("quizResult").innerHTML = "Oops! Try again.";
+            }
+        }
+ 
+        document.getElementById("resourceForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const title = this.querySelector("input[type='text']").value;
+            const url = this.querySelector("input[type='url']").value;
+            const resourceDiv = document.createElement("div");
+            resourceDiv.innerHTML = `<a href="${url}" target="_blank">${title}</a>`;
+            document.getElementById("resourcesSection").appendChild(resourceDiv);
+            this.reset();
+        });
+</script>
+</body>
+</html>
